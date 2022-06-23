@@ -2,12 +2,12 @@
 <br/>
 Content:
 <br/>
-1. Setter Injection.
-2. Constructor Injection.
-3. Implementation of Collection types.
-4. Autowiring(Manually and using Annotations).
-5. Life Cycle of Bean.
-6. Sterotype Annotations.
-7. Spring Experssion Language(SpEl).
-8. Injecting using reference type.
-9. Stand Alone Collections.
+1. Setter Injection.<br/>
+2. Constructor Injection.<br/>
+3. Implementation of Collection types.<br/>
+4. Autowiring(Manually and using Annotations).<br/>
+5. Life Cycle of Bean.<br/>
+6. Sterotype Annotations.<br/>
+7. Spring Experssion Language(SpEl).<br/>
+8. Injecting using reference type.<br/>
+9. Stand Alone Collections.<br/>
