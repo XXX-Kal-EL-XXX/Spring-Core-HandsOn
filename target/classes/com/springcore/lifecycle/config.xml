@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans.xsd
+	   http://www.springframework.org/schema/context
+	   http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!-- Below Tag is use to enable all the annotation used in Bean class -->	   
+	   <context:annotation-config />
+
+
+
+<!-- Life Cycle method using XML configuration. -->
+	   
+	<bean class="com.springcore.lifecycle.Product" name="s1" init-method="init" destroy-method="destroy">
+			<property name="price" value="17" />
+
+	</bean>	   
+	
+	
+	
+<!-- 	Life Cycle method using Spring Interface. -->
+
+	<bean class="com.springcore.lifecycle.Cheetos" name="c1">
+	
+			<property name="price" value="600" />
+	
+	</bean>
+	
+	
+	
+<!-- Life Cycle method using Annotation. -->
+	<bean class="com.springcore.lifecycle.Example" name="ex1">
+	
+			<property name="subject" value="Mathematics"/>
+	</bean>
+
+</beans>

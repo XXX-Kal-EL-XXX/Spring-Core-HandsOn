@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans.xsd
+	   http://www.springframework.org/schema/context
+	   http://www.springframework.org/schema/context/spring-context.xsd">
+	   
+<!-- Bean 1	 -->   
+	   <bean class="com.springcore.ref.B" name="bref">
+	   		<property name="y" value="90" />
+	   </bean>
+
+<!-- Bean 2	 -->   	   
+	    <bean class="com.springcore.ref.B" name="bref1">
+	   		<property name="y" value="30" />
+	   </bean>
+
+<!-- Bean 3	 -->   	   
+	    <bean class="com.springcore.ref.B" name="bref2">
+	   		<property name="y" value="50" />
+	   </bean>
+	   
+<!-- Injecting using property tag.	 -->   
+	    <bean class="com.springcore.ref.A" name="aref">
+	    	<property name="x" value="12" />
+	    	<property name="obj">
+	    			<ref bean="bref" />
+	    	</property>
+	    </bean>
+
+<!-- Injecting without using ref tag.     -->
+
+		<bean class="com.springcore.ref.A" name="aref1">
+			<property name="x" value="20" />
+			<property name="obj" ref="bref1" />
+		
+		</bean>
+		
+<!-- Injecting using Pschema. -->
+
+		<bean class="com.springcore.ref.A" name="aref2" p:x="40" p:obj-ref="bref2" />
+
+</beans>

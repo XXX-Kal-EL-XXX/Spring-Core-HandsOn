@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:c="http://www.springframework.org/schema/c"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans.xsd
+	   http://www.springframework.org/schema/context
+	   http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!-- Bean 1 using value tag. -->
+	   <bean class="com.springcore.constructorinjection.Person" name="person">
+	   
+			<constructor-arg>
+					<value>Superman</value>
+			</constructor-arg>
+			
+			<constructor-arg>
+					<value>1007</value>
+			</constructor-arg>
+			
+	   </bean>
+	   
+<!-- Bean 2 using value as an attribute inside constructor-arg property. --> 
+	   <bean class="com.springcore.constructorinjection.Person" name="person1">
+	   
+	   		<constructor-arg value="1001" type="int" />
+	   		<constructor-arg value="Green Lantern" type="String" />
+	   
+	   </bean>
+	   
+<!-- Bean 3 using cshema. -->	 
+		<bean class="com.springcore.constructorinjection.Person" name="person2" c:name="Flash" c:personId="1000" />
+
+		
+
+<!--    ===========================================================================	 -->	
+
+
+
+		
+<!-- Bean for injecting reference type using constructor injection.	 -->	
+
+	  <bean class="com.springcore.constructorinjection.Certificate" name="certi">
+	  			<constructor-arg value="Python Certification" />
+	  </bean>
+
+
+
+	  <bean class="com.springcore.constructorinjection.Person1" name="per">
+	  		<constructor-arg  value="Kal-El" />
+	  		<constructor-arg  value="1007"/>
+	  		<constructor-arg  ref="certi"/>
+	  </bean>
+	  
+	  
+	  
+	  
+<!--    ===========================================================================	 -->		 
+
+	  <bean class="com.springcore.constructorinjection.Addition" name="addition">
+	  		<constructor-arg value="12" type="int" index="0"/>
+	  		<constructor-arg value="20" type="int" index="1"/>
+	  </bean> 
+	  
+	   <bean class="com.springcore.constructorinjection.Addition" name="addition1">
+	  		<constructor-arg value="12" type="double" index="1"/>
+	  		<constructor-arg value="20" type="double" index="0"/>
+	  </bean>
+	  
+	   <bean class="com.springcore.constructorinjection.Addition" name="addition2">
+	  		<constructor-arg value="12" type="String" index="0"/>
+	  		<constructor-arg value="20" type="String" index="1"/>
+	  </bean>  
+  
+
+</beans>

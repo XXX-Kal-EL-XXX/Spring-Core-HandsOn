@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:util="http://www.springframework.org/schema/util"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans.xsd
+	   http://www.springframework.org/schema/context
+	   http://www.springframework.org/schema/context/spring-context.xsd
+	   http://www.springframework.org/schema/util
+	   http://www.springframework.org/schema/util/spring-util.xsd
+	   ">
+	   
+	   
+	   
+<!-- 	Stand Alone Collection of Type List. Stand Alone can be reused in any bean without copying the content again and again.   --> 
+	   
+	   <util:list list-class="java.util.LinkedList" id="personName">
+	       <value> Kal EL </value>
+	       <value>Bruce Wayn</value>
+		   <value>Barry Alan</value>
+	   </util:list>
+	   
+	   
+	  <!--  Stand Alone Collection of Type Map. -->
+	   
+	  <util:map map-class="java.util.HashMap" id="salary1">
+	     <entry key="Accountant" value="50000" />
+	     <entry key="Programmer" value="60000" />
+	     <entry key="Cashier"    value="30000" />
+	  
+	  </util:map>
+	  
+	  
+	   <!--  Stand Alone Collection of Type Properties. -->
+	   
+	   <util:properties id="dbConfig">
+	   		<prop key="driver">com.mysql.jdbc.driver </prop>
+	   		<prop key="username">Root </prop>
+	   		<prop key="password">Flash07 </prop>
+	   		<prop key="url">mysql:jdbc://localhost:3306/database </prop>
+	   
+	   </util:properties>
+	  
+	  
+	  
+  
+<!-- =====================================================================================	 -->	     	   
+	   
+	   
+<!-- Setter Based Injection. By default it uses ArrayList	 -->		
+
+
+		<bean name="list1" class="com.springcore.standalonecollections.Person" >
+			
+			<property name="name">
+				<list>
+					<value>Kal EL</value>
+					<value>Bruce Wayn</value>
+					<value>Barry Alan</value>		
+				</list>
+				
+			</property>	
+		
+		</bean>
+
+
+<!-- =====================================================================================	 -->	
+
+
+<!-- Calling Stand alone collection via id i.e. personName. -->
+
+		<bean name="list2" class="com.springcore.standalonecollections.Person">
+					
+					<property name="name" ref="personName" />
+		
+		</bean>
+		
+
+		<bean name="list3" class="com.springcore.standalonecollections.Person">
+					
+					
+					<property name="salary" ref="salary1"/>
+		
+		</bean>
+		
+		
+		<bean name="list4" class="com.springcore.standalonecollections.Person">
+					
+					
+					<property name="properties" ref="dbConfig"/>
+		
+		</bean>
+		
+	   
+		
+	   
+</beans>
+	   
+	   
